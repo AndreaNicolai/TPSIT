@@ -6,19 +6,11 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-<style>
-
-body{
-background-color: green;
-}
-
-
-  
-</style>
-
-
-
-  
+  <style>
+    body {
+      background-color: green;
+    }
+  </style>
 </head>
 
 <body>
@@ -27,16 +19,20 @@ background-color: green;
     <input type="number" id="n">
     <button onclick="Problema1()">Numericompresi</button>
     <p id="Out1"></p>
+    <p id="percentuale1"></p>
   </div>
 
   <script>
     function Problema1() {
-      let n = document.getElementById("n").value;
+      let n =document.getElementById("n").value;
       let str = "";
       for (let i = 1; i <= n; i++) {
         str = str + " " + i;
       }
       document.getElementById("Out1").innerHTML = str;
+
+      let percentuale = n * 10 / 100;
+      document.getElementById("percentuale1").innerHTML = "Il 10% del numero inserito è: " + percentuale;
     }
   </script>
 </body>
