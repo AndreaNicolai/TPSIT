@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <button onclick="startCount()">Start the counter</button>
+  <p id="contatore"></p>
+  <p id="tabellina"></p>
+
+  <script>
+    function startCount() {
+      let count = 1;
+      let intervalId = setInterval(function () {
+        document.getElementById("contatore").innerHTML += count + " ";
+
+        if (count === 5) {
+          clearInterval(intervalId);
+
+          let tables = "<p>Tabelline dal 1 al 10:</p>";
+          for (let i = 1; i <= 10; i++) {
+            tables += i + ": ";
+            for (let j = 1; j <= 10; j++) {
+              tables += i * j + " ";
+            }
+            tables += "<br>";
+          }
+
+          document.getElementById("tabellina").innerHTML = tables;
+        } else {
+          count++;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>
