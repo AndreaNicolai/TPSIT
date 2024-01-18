@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+
+body{
+background-color: green;
+}
+
+
+  
+</style>
+
+
+
+  
+</head>
+
+<body>
+  <div id="es3">
+    <p>Dato 1 input stampare da 1 fino al numero dato</p>
+    <input type="number" id="n">
+    <button onclick="Problema1()">Numericompresi</button>
+    <p id="Out1"></p>
+  </div>
+
+  <script>
+    function Problema1() {
+      let n = document.getElementById("n").value;
+      let str = "";
+      for (let i = 1; i <= n; i++) {
+        str = str + " " + i;
+      }
+      document.getElementById("Out1").innerHTML = str;
+    }
+  </script>
+</body>
+
+</html>
