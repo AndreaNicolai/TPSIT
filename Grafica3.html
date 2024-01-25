@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Grafica 3</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+  #Scacchiera {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-gap: 1px; /* Spazio tra le caselle */
+    border: 2px solid #000; /* Bordo della scacchiera */
+    width: 408px; /* Larghezza totale considerando 8 caselle da 50px e 7 spazi tra di esse */
+  }
+
+  .bianco {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+  }
+
+  .nero {
+    width: 100%;
+    height: 50px;
+    background-color: #000;
+  }
+</style>
+
+
+  
+</head>
+
+<body>
+  <div id="Scacchiera"></div>
+
+  <script>
+    let Scacchiera = document.getElementById("Scacchiera");
+    let chessboardHTML = "";
+
+    for (let i = 0; i < 64; i++) {
+      if ((i % 8 + Math.floor(i / 8)) % 2 === 0) { //calcolo per verificare se la posizione è pari e soprattutto minore di 0(utilizzo di math.floor)
+        chessboardHTML += '<div class="bianco"></div>';
+      } else {
+        chessboardHTML += '<div class="nero"></div>';
+      }
+    }
+
+    Scacchiera.innerHTML = chessboardHTML;
+  </script>
+  </body>
+
+  </html>
