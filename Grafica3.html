@@ -40,7 +40,7 @@
     let chessboardHTML = "";
 
     for (let i = 0; i < 64; i++) {
-      if ((i % 8 + Math.floor(i / 8)) % 2 === 0) { //calcolo per verificare se la posizione è pari e soprattutto minore di 0(utilizzo di math.floor)
+      if (i % 8=== 0) { 
         chessboardHTML += '<div class="bianco"></div>';
       } else {
         chessboardHTML += '<div class="nero"></div>';
