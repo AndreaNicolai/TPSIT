@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    .Quadrati {
+      border: 1px solid black;
+      height: 10px;
+      width: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="es">
+    <p>Il numero che scrivi in input determinerà il numero di quadrati</p>
+    <input type="number" id="n">
+    <button onclick="Problema1()">Stampa</button>
+    <div id="Out1">
+    </div>
+  </div>
+
+  <script>
+    function Problema1() {
+      let n = document.getElementById("n").value;
+      let container = document.getElementById("Out1");
+
+
+      container.innerHTML = "";
+
+      for (let i = 0; i < n; i++) {
+        container.innerHTML += "<div class='Quadrati'></div>";
+      }
+    }
+  </script>
+</body>
+
+</html>
