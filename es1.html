@@ -4,36 +4,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>es1</title>
+  <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <style>
-    body {
-      background-color: green;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="es3">
-    <p>Dato 1 input stampare da 1 fino al numero dato</p>
-    <input type="number" id="n">
-    <button onclick="Problema1()">Numericompresi</button>
-    <p id="Out1"></p>
-    <p id="percentuale1"></p>
-  </div>
+   <input type="number" id="n">
+   <button onclick="Problema1()">Stampa</button>
+   <p id="risultato"></p>
 
   <script>
-    function Problema1() {
-      let n =document.getElementById("n").value;
-      let str = "";
-      for (let i = 1; i <= n; i++) {
-        str = str + " " + i;
-      }
-      document.getElementById("Out1").innerHTML = str;
 
-      let percentuale = n * 10 / 100;
-      document.getElementById("percentuale1").innerHTML = "Il 10% del numero inserito è: " + percentuale;
-    }
+    function Problema1(){
+      let mercurio=3.60;
+      let terra=9.81;
+      let venere=8.84;
+      let marte=3.72;
+      let giove=24.87;
+      let saturno=10.43;
+      let urano=10.04;
+      let nettuno=12.92;
+      let plutone=2.26;
+     let n =document.getElementById("n").value;
+      let sommamercurio = 0;
+      let sommamterra = 0;
+      let sommamvenere = 0;
+      let sommammarte = 0;
+      let sommamsaturno =0; 
+      let sommamurano =0;
+      let sommamnettuno =0;
+      let sommamplutone =0;
+      let  sommamgiove=0;
+      sommamercurio += (mercurio*n);
+      sommamterra += (terra*n);
+      sommamvenere += (venere*n);
+      sommammarte +=(marte*n);
+      sommamgiove += (giove*n);
+      sommamsaturno += (saturno*n);
+      sommamurano += (urano*n);
+      sommamnettuno += (nettuno*n);
+      sommamplutone += (plutone*n);
+     
+     document.getElementById("risultato").innerHTML+= "Risultato mercurio: " + sommamercurio + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato terra: " + sommamterra + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato venere: " + sommamvenere + "<br>";
+         document.getElementById("risultato").innerHTML+= "Risultato marte: " + sommammarte + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato giove: " + sommamgiove+ "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato saturno: " + sommamsaturno + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato urano: " + sommamurano + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato nettuno: " + sommamnettuno + "<br>";
+         document.getElementById("risultato").innerHTML+=  "Risultato plutone: " + sommamplutone + "<br>";
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
 </body>
 
