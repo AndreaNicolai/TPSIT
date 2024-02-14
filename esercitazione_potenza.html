@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esercizio1</title>
+
+    <style>
+    #trasforma_box
+    {
+        border: 1px solid black;
+     
+        width: 500px;
+        height: 300px;
+    }
+    #pannellies
+    {
+        border: 1px solid black;
+        background-color: red;
+        width: 500px;
+        height: 300px;
+    }
+
+
+
+    </style>
+</head>
+<body>
+   
+   
+
+<div id="trasforma_box">
+
+
+    <p>esercizio recupero input e output: scrivi un dato in ingresso una
+        misura in kw, trasforma questa in una misura correlata al tempo.
+        crea un div contenitore degli input e degli output neccessari.
+    esercizio 2: crea un'ulteriore div con lo sfondo a tuo piacere che contiene
+    la potenza dei panelli fotovoltaici che possediamo.
+    calcolare il totale della potenza basata sul numero dei panelli totali.</p>
+    <br>
+    <label for="input_kw">kw:</label>
+    <input type="text" id="input_kw" name="input_kw">
+    <label for="input_h">Ore:</label>
+    <input type="text" id="input_h" name="input_h">
+
+    <button onclick="trasforma()"  >
+    calcola
+    </button>
+    <p id="risultato"></p>
+</div>
+    <div id="pannellies">
+    <label for="input_pannelli">Numero pannelli totali:</label>
+    <input type="text" id="input_pannelli" name="input_pannelli">
+    <button onclick="Calcola()"  >
+        calcola
+        </button>
+   <p id="Potenza"></p>
+    </div>
+    <script>
+    function trasforma()
+    {
+        let kw=document.getElementById("input_kw").value;
+        let h=document.getElementById("input_h").value;
+        let kwh=kw*h;
+        document.getElementById("risultato").innerHTML=kwh;
+    }
+    function Calcola(){
+        let pannelli=document.getElementById("input_pannelli").value;
+        let potenza=110;
+        let calcolototale=pannelli*potenza;
+        let str=""+calcolototale;
+        document.getElementById("Potenza").innerHTML=str;
+    }
+
+
+
+
+    </script>
+</body>
+</html>
