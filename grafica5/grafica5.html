@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 5px;
+            width: 10px;
+            height: 10px;
+        }
+
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Stile per numeri pari */
+        .pari {
+            background-color: #eee;
+        }
+        
+        /* Stile per numeri dispari */
+        .dispari {
+            background-color: #545453;
+        }
+
+        #bombaa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px; /* Regola questa parte per spostare più in alto il blocco con il bottone e il paragrafo */
+        }
+
+        #bomba {
+            width: 70px;
+            height: 70px;
+            margin: 10px;
+        }
+        #pizzaa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px; /* Regola questa parte per spostare più in alto il blocco con il bottone e il paragrafo */
+        }
+
+        #pizza {
+            width: 70px;
+            height: 70px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container" id="Tabella"></div>
+    <div id="bombaa">
+        <button onclick="bomba()"><img src="bomba.jpg" id="bomba"></button>
+        <p id="bombacount">Bomba counter: </p>
+    </div>
+    <div id="pizzaa">
+      <button onclick="pizza()"><img src="pizza.jpg" id="pizza"></button>
+      <p id="pizzacount">Pizza counter: </p>
+  </div>
+
+    <script>
+        let Grafica = document.getElementById("Tabella");
+        let quadratiHTML = " ";
+
+        for (let i = 1; i <= 100; i++) {
+            if (i / 10 == 0) {
+                quadratiHTML += "<br>";
+            }
+            if (i % 2 == 0) {
+                quadratiHTML += '<div class="grid-item pari"></div>';
+            } else {
+                quadratiHTML += '<div class="grid-item dispari"></div>';
+            }
+        }
+
+        Grafica.innerHTML = quadratiHTML;
+
+        let countbomba = 0;
+        let countpizza = 0;
+        function bomba() {
+            countbomba++;
+            document.getElementById("bombacount").innerText = "Bomba counter: " + countbomba;
+        }
+        function pizza() {
+            countpizza++;
+            document.getElementById("pizzacount").innerText = "pizza counter: " + countpizza;
+        }
+    </script>
+</body>
+</html>
