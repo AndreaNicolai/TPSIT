@@ -1,0 +1,36 @@
+<!--creare un ciclo for che stampa 1000 numeri casuali tra 1 e 6
+
+mettere su git-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Esercitazione ciclo for</title>
+</head>
+<body>
+<p id="casuali"></p>
+
+
+
+
+
+<script>
+    let str=" "
+for(let i = 0 ; i < 1000 ; i++){
+    str+=Math.floor(Math.random() * 6) + 1 +"<br>";
+
+}
+document.getElementById("casuali").innerHTML=str;
+
+
+
+
+
+
+</script>
+</body>
+</html>
