@@ -26,6 +26,11 @@
     #logo-navbar{
       width: 30px;
     }
+    .scritte_navbar{
+       font-family: RMNeue-Regular;
+       font-size: 18px;
+       float: right;
+    }
     .loghi_navbar{
       width: 50px;
     }
@@ -38,6 +43,21 @@
     #logo-Team{
         width: 100%;
     }
+
+    #Legends{
+
+      font-family: RMNeue-Regular;
+
+    }
+    #Goats{
+
+    font-family: RMNeue-Regular;
+
+  }
+
+
+
+
   </style>
 </head>
 
@@ -88,13 +108,17 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="https://www.adidas.es/real_madrid"><img class="loghi_navbar" src="Adidas_logo.png" alt=""></a><!--link adidas-->
+          <a class="nav-link" href="https://www.adidas.es/real_madrid"><img class="loghi_navbar" src="Adidas_logo.png" alt=""><p class="scritte_navbar">Merchandising</p></a><!--link adidas-->
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.uefa.com/uefachampionsleague/history/rankings/">
+            <img src="Logo_UEFA.png" class="loghi_navbar" alt="">
+            <p class="scritte_navbar">Champions league statistics</p>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://www.uefa.com/uefachampionsleague/history/rankings/"><img src="Logo_UEFA.png" class="loghi_navbar" alt=""></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.realmadrid.com/es-ES/el-club/palmares/futbol"><img src="honor_roll.png" class="loghi_navbar" alt=""></a>
+          <a class="nav-link" href="https://www.realmadrid.com/es-ES/el-club/palmares/futbol"><img src="honor_roll.png" class="loghi_navbar" alt=""><p class="scritte_navbar">Palmarès</p></a>
         </li>
       </ul>
     </div>
@@ -105,22 +129,26 @@
       <div class="col-sm-4">
         <h2>About Us</h2>
         <img src="Team.jpg" alt="" id="logo-Team">
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-        <h3>Some Links</h3>
-        <p>Lorem ipsum dolor sit ame.</p>
+        <p>Welcome to our Madrid fans website, here you can find useful links about our football club and much more, stay tuned, the site is constantly updated! From
+          Madridistas to Madridistas <span>&#129293;</span>
+        </p>
+        <div id="Legends">
+        <h3>The greatests Madrid legends</h3>
+        <p>Click on their name and you'll be linked to their wikipedia page!</p>
+        </div>
+        <div id="Goats">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link active" href="https://en.wikipedia.org/wiki/Cristiano_Ronaldo">Cristiano Ronaldo
+               <span><img src="ronaldo_face-removebg-preview.png" width="39%"></span></a> <br>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active" href="https://en.wikipedia.org/wiki/Ra%C3%BAl_(footballer)">Raul <span><img src="11952.png" width="19%"></span></a> <br><br>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active" href="https://en.wikipedia.org/wiki/Alfredo_Di_St%C3%A9fano">Alfredo Di Stefano <span><img src="diste.png" width="30%"></span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
+        </div>
         </ul>
         <hr class="d-sm-none">
       </div>
