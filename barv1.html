@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Bar v1</title>
+    <style>
+    body{
+        background-color: blueviolet;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+<h2>Bar: </h2>
+<button onclick="Prima()">Istruzioni</button>
+<p id="out1"></p>
+<button onclick="Seconda()">Menù drink</button>
+<p id="out2"></p>
+<button onclick="Terza()">Ordini</button>
+<p id="out3"></p>
+
+
+
+ <script>
+    let cont = 0;
+    let str="";
+function Prima(){
+cont++;
+    if (cont==1){
+        str="Ciao!";
+        document.getElementById("out1").innerHTML=str;
+
+    }
+    else if(cont==2){
+        str="Sono un chatbot pronto a servirti";
+        document.getElementById("out1").innerHTML=str;
+    }
+    else if(cont==3){
+        str="Premi il secondo bottone per avere la lista dei drink";
+        document.getElementById("out1").innerHTML=str;
+    }
+
+
+}
+function Seconda(){
+let lista="Spritz,Coca Cola,Gin Tonic,Bitter,Mojito";
+document.getElementById("out2").innerHTML=lista;
+
+}
+
+function Terza(){
+    let text;
+let Drink = prompt("Quale drink vuoi ordinare?");
+switch(Drink) {
+  case "Coca-Cola":
+    text = "Eccellente! Il costo è 3 euro.";
+    break;
+  case "Spritz":
+    text = "Ottimo!Il costo è 4 euro";
+    break;
+  case "Bitter":
+    text = "Bellissima scelta! Il costo è 3,50 euro";
+    break;
+    case "Gin Tonic":
+    text = "Eccellente! Il costo è 7,50 euro";
+    break;
+    case "Mojito":
+    text = "Ottimo! Il costo è 8 euro";
+    break;
+  default:
+    text = "Errore! Prova a scrivere il drink che vuoi esattamente com'è scritto nella lista da noi mostrata...";
+}
+document.getElementById("out3").innerHTML=text;
+
+}
+
+
+
+
+
+ </script>   
+</body>
+</html>
