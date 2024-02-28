@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Es1</title>
+</head>
+<body>
+<h3>Con questo programma calcoleremo il tuo indice di massa corporea...</h3>
+<label for="peso">peso:</label>
+<input type="number" id="peso" name="peso">
+<label for="altezza">altezza(metri):</label>
+<input type="number" id="altezza" name="altezza">
+<button onclick="Calcola()">Calcola</button>
+<p id="imc"></p>
+<p id="risultato"></p>
+
+
+<script>
+   
+   
+   
+function Calcola(){
+let peso=document.getElementById("peso").value;
+let altezza=document.getElementById("altezza").value;
+let str=" ";
+let str1="IMC: ";
+let IMC=0;
+altezza=altezza*altezza;
+    IMC=peso/altezza;
+    str1+=IMC;
+    document.getElementById("imc").innerHTML=str1;
+    if (IMC>=30) {
+        str="Obesità";
+        document.getElementById("risultato").innerHTML=str;
+       
+    }
+
+
+   else if(IMC<18,5) {
+        str="sottopeso";
+        document.getElementById("risultato").innerHTML=str;
+       
+    }
+     else if(IMC>=18,5 && IMC<25) {
+        str="Normopeso";
+        document.getElementById("risultato").innerHTML=str;
+       
+    }
+   else if(IMC>=25 && IMC<30) {
+        str="Sovrappeso";
+        document.getElementById("risultato").innerHTML=str;
+       
+    }
+   
+
+
+
+
+
+
+}
+</script>
+</body>
+</html>

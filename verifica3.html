@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>es3</title>
+    <style>
+        #quadrati{
+            width:20px;
+            height:20px;
+            background-color: blueviolet;
+            border: 1px solid black;
+
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <label for="raggio">raggio:</label>
+    <input type="number" id="raggio" name="raggio">
+    <button onclick="Calcola()">Calcola</button>
+    <p id="risultato"></p>
+     <button onclick="Stampa()">Stampa N quadrati (N=area)</button>
+    <div id="quadrati">
+       
+    </div>
+    <p id="stampati"></p>
+
+
+
+
+
+
+
+
+   <script>
+
+
+    function Calcola(){
+        let raggio=document.getElementById("raggio").value;
+        let area=raggio*raggio;
+        document.getElementById("risultato").innerHTML=area;
+    }
+   function Stampa(){
+    let raggio=document.getElementById("raggio").value;
+        let area=(raggio*raggio)*3.14;
+        for ( i = 0 ; i < area ; i++){
+            document.getElementById("stampati").innerHTML += '<div id="quadrati"></div>';
+
+
+
+
+
+
+        }
+    }
+
+
+
+
+
+
+   </script>
+</body>
+</html>
