@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar v.1</title>
+</head>
+<body>
+    <div>
+        <p id="menu"></p>
+        <p id="menucount"></p>
+    </div>
+   
+    <div>
+        <button id="btn_count" onclick="CountDrinks()">Numero Drink nel menu</button>
+        <button onclick="AddDrinks()">Add Drink</button>
+        <button onclick="DeleteDrinks()">Delete Drink</button>
+        <button onclick="BuyDrinks()">Ordina</button>
+    </div>
+
+    <!-- Nuovo paragrafo per gli ordini -->
+    <p id="orderStatus"></p>
+
+    <script>
+        let drinks=["coke","fanta","orange","the"];
+        document.getElementById("menu").innerHTML=drinks.toString();
+
+        function CountDrinks(){
+            let lunghezza=drinks.length;
+            let str="Nel bar sono presenti "+ lunghezza+" drinks";
+            document.getElementById("menucount").innerHTML=str;
+        }
+
+        function AddDrinks() {
+            let newDrink = prompt("Inserisci il nome del nuovo drink:");
+            if (newDrink) {
+                drinks.push(newDrink);
+                document.getElementById("menu").innerHTML = drinks.join(", ");
+            }
+        }
+
+        function DeleteDrinks() {
+            if (drinks.length > 0) {
+                drinks.pop(); 
+                document.getElementById("menu").innerHTML = drinks.join(", ");
+            } else {
+                alert("Non ci sono drink nel menu da eliminare.");
+            }
+        }
+
+        function BuyDrinks(){
+            if (drinks.length > 0) {
+                let selectedDrink = prompt("Inserisci il nome del drink da ordinare:");
+                if (selectedDrink && drinks.includes(selectedDrink)) {
+                    let orderStatus = document.getElementById("orderStatus");
+                    orderStatus.innerHTML += "<br>Ordine eseguito per " + selectedDrink;
+                } else {
+                    alert("Il drink selezionato non è disponibile.");
+                }
+            } else {
+                alert("Non ci sono drink disponibili per l'ordine.");
+            }
+        }
+    </script>
+</body>
+</html>
