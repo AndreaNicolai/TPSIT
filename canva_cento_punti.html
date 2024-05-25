@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+// Disegna 100 puntini (10 per riga)
+for (var i = 0; i < 10; i++) {
+  for (var j = 0; j < 10; j++) {
+    var x = i * 20 + 10; // calcola la posizione x(le coordinate vanno da 0 a 180 (i*20), il +10 serve a farli partire di 10 pixel distanti dal bordo
+    var y = j * 10 + 5;  // stessa logica della coordinata x ma con cifre diverse
+    ctx.beginPath(); //funzione che serve a non sovrascrivere gli altri pallini
+    ctx.arc(x, y, 2, 0, 2 * Math.PI); // disegna un cerchio di raggio 2 nella pos x,y
+    ctx.fill(); //Riempe l'area del cerchio disegnato creando un puntino pieno
+  }
+}
+</script>
+
+</body>
+</html>
+<!-- link tut cerchio: https://www.w3schools.com/jsref/canvas_arc.asp -->
