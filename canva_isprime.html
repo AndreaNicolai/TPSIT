@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="1000" height="200" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+function isPrime(n) {
+    let bprime = true;
+    if (n <= 1) bprime = false; // Se n è minore o uguale a 1, non è primo
+    for (let i = 2; i <= n/2; i++) { // Verifica i divisori fino alla radice quadrata di n
+        if (n % i === 0) { // Se n è divisibile per i, non è primo
+            bprime = false;
+        }
+    }
+    return bprime; // Se nessun divisore è stato trovato, n è primo
+}
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+let cont = -1;
+// Disegna 1000 puntini (50 per riga, 20 righe)
+for (var j = 0; j < 20; j++) { // Inizia un ciclo annidato che itera 20 volte per le righe
+  for (var i = 0; i < 50; i++) { // Inizia un ciclo che itera 50 volte per le colonne
+    cont++;
+    var x = i * 20 + 10; // Calcola la posizione x del puntino
+    var y = j * 10 + 5;  // Calcola la posizione y del puntino
+    ctx.beginPath(); // Inizia un nuovo percorso per disegnare un puntino
+    ctx.arc(x, y, 2, 0, 2 * Math.PI); // Disegna un cerchio alle coordinate (x, y) con raggio di 2 pixel
+    if (isPrime(cont)) {
+        ctx.fillStyle = 'red'; // Imposta il colore del puntino a rosso se il numero è primo
+    } else {
+        ctx.fillStyle = 'black'; // Imposta il colore del puntino a nero se il numero non è primo
+    }
+    ctx.fill(); // Riempie il cerchio disegnato, creando un puntino
+  }
+}
+</script>
+
+</body>
+</html>
