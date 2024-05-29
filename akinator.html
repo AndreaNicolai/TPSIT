@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akinator Lite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #question-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="question-container">
+        <p id="question">Pensa a un personaggio famoso e rispondi alle domande.</p>
+        <div id="buttons">
+            <button onclick="answerQuestion(true)">Sì</button>
+            <button onclick="answerQuestion(false)">No</button>
+        </div>
+    </div>
+
+    <script>
+        let questions = [
+            "Il personaggio che hai pensato è un uomo?",
+            "Il personaggio che hai pensato è reale?",
+            "Il personaggio che hai pensato è un personaggio storico?",
+            "Il personaggio che hai pensato è un personaggio dei fumetti?",
+            "Il personaggio che hai pensato è famoso per le sue scoperte scientifiche?",
+            "Il personaggio che hai pensato è ancora in vita?",
+            "Il personaggio che hai pensato è noto per la sua musica?",
+            "Il personaggio che hai pensato è stato premiato con il Nobel?",
+            "Il personaggio che hai pensato è un personaggio di un romanzo famoso?",
+            "Il personaggio che hai pensato è stato un presidente?"
+            // Aggiungi altre domande qui
+        ];
+
+        let possibleCharacters = [
+            { name: "Albert Einstein", answers: [true, true, true, false, true, false, false, true, false, false] },
+            { name: "Leonardo da Vinci", answers: [true, true, true, false, true, false, false, false, false, false] },
+            { name: "Superman", answers: [true, false, false, true, false, false, false, false, false, false] },
+            { name: "Cleopatra", answers: [false, true, true, false, false, false, false, false, false, false] },
+            { name: "Taylor Swift", answers: [false, true, false, false, false, true, true, false, false, false] },
+            { name: "Barack Obama", answers: [true, true, false, false, false, true, false, false, false, true] },
+            { name: "Marie Curie", answers: [false, true, true, false, true, false, false, true, false, false] },
+            { name: "Elon Musk", answers: [true, true, false, false, true, true, false, false, false, false] },
+            { name: "Harry Potter", answers: [true, false, false, false, false, false, false, false, true, false] },
+            { name: "Amelia Earhart", answers: [false, true, true, false, false, false, false, false, false, false] },
+            { name: "Mozart", answers: [true, true, true, false, false, false, true, false, false, false] },
+            { name: "Walt Disney", answers: [true, true, true, false, false, false, false, false, false, false] },
+            { name: "Mahatma Gandhi", answers: [true, true, true, false, false, false, false, false, false, false] },
+            { name: "Michael Jackson", answers: [true, true, false, false, false, false, true, false, false, false] },
+            { name: "Wonder Woman", answers: [false, false, false, true, false, false, false, false, false, false] }
+            // Aggiungi altri personaggi qui
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers = [];
+
+        function askQuestion() {
+            document.getElementById('question').innerText = questions[currentQuestionIndex];
+        }
+
+        function answerQuestion(isYes) {
+            answers.push(isYes);
+            if (currentQuestionIndex === questions.length - 1) {
+                showResult();
+            } else {
+                currentQuestionIndex++;
+                askQuestion();
+            }
+        }
+
+        function showResult() {
+            let possibleMatch = possibleCharacters.find(character => {
+                return character.answers.slice(0, answers.length).every((answer, index) => answer === answers[index]);
+            });
+
+            let result = possibleMatch ? "Hai pensato a " + possibleMatch.name + "!" : "Non sono riuscito ad indovinare il personaggio.";
+            document.getElementById('question-container').innerHTML = "<p>" + result + "</p>";
+        }
+
+        askQuestion();
+    </script>
+</body>
+</html>
