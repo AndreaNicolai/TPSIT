@@ -24,19 +24,19 @@
 <script>
 
 function printArrayInDivs(arr) {
-    const container = document.getElementById('container');
+    const container = document.getElementById('container'); //alla costante container associa il div container
    
-    arr.forEach(element => {
-        const div = document.createElement('div');
-        div.classList.add('box');
-        div.textContent = element;
-        container.appendChild(div);
+    arr.forEach(element => { //per ogni elemento dell'array 
+        const div = document.createElement('div'); //alla costante div associa l'elemento div
+        div.classList.add('box'); //al div aggiunge,associa la classe box
+        div.textContent = element; // associa alla costante div element
+        container.appendChild(div); //aggiunge l'elemento div alla fine del container
     });
 }
 
 // Esempio di utilizzo
-const myArray = [1, 2, 3, 4, 5, "ciao", "test"];
-printArrayInDivs(myArray);
+const myArray = [1, 2, 3, 4, 5, "ciao", "test"]; //dichiarazione array
+printArrayInDivs(myArray); //stampa array nei div
 
 
 </script>
