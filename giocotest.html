@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array in Box Div</title>
+    <style>
+        body {
+            background-color: purple;
+        }  
+        #count {
+            left: 370px;
+            top: 50px;
+            background-color: rgb(255, 0, 0);
+            color: black;
+            position: absolute;
+            height: 200px;
+            width: 800px;
+            text-align: center;
+            font-size: 150px; 
+            border-width: 1px;
+            border: solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #n {
+            left: 370px;
+            top: 450px;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            position: absolute;
+            height: 200px;
+            width: 800px;
+            text-align: center;
+            font-size: 100px; 
+            border-width: 1px;
+            border: solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #input {
+            left: 370px;
+            top: 250px;
+            background-color: rgb(23, 230, 12);
+            color: black;
+            position: absolute;
+            height: 200px;
+            width: 800px;
+            text-align: center;
+            font-size: 100px; 
+            border-width: 1px;
+            border: solid black;
+            display: flex;
+            flex-direction: column; /* Aggiunto per disporre input e pulsante in colonna */
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            font-size: 30px;
+            width: 400px;
+            margin-top: 10px; /* Margine superiore per l'input */
+        }
+        button {
+            font-size: 30px;
+            margin-top: 10px; /* Margine superiore per il pulsante */
+        }
+    </style>
+</head>
+<body>
+<div id="count"></div>
+<div id="n"></div>
+<div id="input"></div>
+
+<script>
+    let punteggio = 0;
+    let arr = [];
+    let userInputs = []; // Array per memorizzare i numeri inseriti dall'utente
+    var c = document.getElementById('count');
+    var N = document.getElementById('n');
+    var I = document.getElementById('input');
+    var countdown = 3;  // Inizializziamo il countdown a 3 secondi
+
+    // Funzione che aggiorna il div con il countdown
+    function startCountdown() {
+        c.innerHTML = countdown;  // Mostra il numero iniziale nel div
+
+        // Imposta il setInterval per aggiornare ogni secondo
+        var interval = setInterval(function() {
+            countdown--;  // Decrementa il countdown
+            c.innerHTML = countdown;  // Aggiorna il div con il nuovo valore
+
+            // Quando il countdown arriva a 0, interrompi l'intervallo
+            if (countdown === 0) {
+                clearInterval(interval);  // Ferma il setInterval
+                c.innerHTML = "Inizio!";  // Mostra un messaggio finale
+
+                // Nascondi il div dopo 1 secondo
+                setTimeout(function() {
+                    c.style.display = 'none';
+                }, 1000);  // Mostra "Inizio!" per 1 secondo, poi nascondi il div
+            }
+        }, 1000);  // Aggiorna ogni 1000 millisecondi (1 secondo)
+    }
+    
+    // Funzione che genera numeri casuali e li visualizza
+    function genNum() {
+        let result = "";  // Stringa per accumulare i numeri generati
+        for (let i = 0; i < 10; i++) {
+            arr[i] = Math.floor(Math.random() * 10) + 1; // Modificato per generare numeri da 1 a 10
+            result += arr[i] + " ";  // Aggiungi ogni numero alla stringa
+        }
+        N.innerHTML = result;  // Visualizza i numeri generati
+    }
+    
+    // Funzione per creare un input di testo e un pulsante
+    function creaInput() {
+        var input = document.createElement('input');  // Crea un nuovo elemento input
+        input.type = 'text';  // Imposta il tipo dell'input
+        input.placeholder = 'Scrivi un numero...';  // Imposta il testo di placeholder
+        I.appendChild(input);  // Aggiungi l'input al div #input
+        
+        var button = document.createElement('button');  // Crea un nuovo pulsante
+        button.innerHTML = 'Invia';  // Imposta il testo del pulsante
+        button.onclick = function() { // Aggiungi un evento al clic sul pulsante
+            var userInput = parseInt(input.value);  // Ottieni il valore dall'input
+            if (!isNaN(userInput) && !arr.includes(userInput)) {
+                userInputs.push(userInput);  // Aggiungi il numero all'array se non è presente nell'array generato
+                console.log('Numeri inseriti:', userInputs);  // Stampa i numeri inseriti
+            }
+            input.value = '';  // Pulisci l'input
+        };
+        I.appendChild(button);  // Aggiungi il pulsante al div #input
+    }
+    function checkInput(input, userInputs){
+        punteggio = 0; 
+        for (let i = 0; i < userInputs.length; i++) {
+            // Se l'input dell'utente non è presente nell'array generato
+            if (!arr.includes(userInputs[i])) {
+                punteggio++;  // Incrementa il punteggio
+            }
+        }
+
+
+    }
+
+    // Avvia il countdown
+    startCountdown();
+    N.style.display = 'none';
+    I.style.display = 'none';
+
+    // Genera i numeri
+    setTimeout(function() {
+        N.style.display = 'flex';
+        genNum();
+    }, 4000);  // Mostra "Inizio!" per 1 secondo, poi nascondi il div
+
+    // Mostra il messaggio e crea l'input dopo 5 secondi
+    setTimeout(function () {
+        c.style.fontSize = '90px';
+        c.style.display = 'flex';
+        I.style.display = 'flex';
+        c.innerHTML = "Hai 5 secondi per rispondere:";  // Mostra un messaggio finale
+        
+        creaInput();  // Chiama la funzione per creare l'input e il pulsante
+    }, 5000);
+</script>
+
+</body>
+</html>
