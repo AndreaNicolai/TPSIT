@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario</title>
+    
+    <!-- Link Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Stile per l'immagine di sfondo */
+        .bg-image {
+            position: relative;
+            width: 100%; /* Occupare il 100% della larghezza */
+            height: auto; /* Mantiene le proporzioni */
+        }
+
+        /* Stile per i contenitori delle GIF */
+        .gif-container {
+            position: absolute; /* Posizionamento assoluto */
+            left: 0; /* Allineato a sinistra */
+            z-index: 100; /* Assicura che le GIF siano sopra ad altri elementi */
+        }
+
+        /* Stile per il contenitore delle immagini */
+        .top-gif {
+            top: 0; /* Posizione in alto */
+        }
+
+        .bottom-gif {
+            bottom: 0; /* Posizione in basso */
+        }
+
+        /* Dimensione delle GIF */
+        .gif {
+            width: 100px; /* Dimensione delle GIF */
+            height: auto; /* Mantiene le proporzioni */
+            margin-bottom: 10px; /* Spazio tra le GIF */
+        }
+
+        /* Stile per il messaggio di vittoria */
+        .message-container {
+            position: absolute;
+            top: 50%; /* Posizionamento verticale al centro */
+            left: 50%; /* Posizionamento orizzontale al centro */
+            transform: translate(-50%, -50%); /* Centro esatto */
+            text-align: center;
+            z-index: 2000;
+        }
+
+        .message-container h1 {
+            font-size: 3rem; /* Dimensione del testo */
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .congratulations {
+            font-size: 2rem; /* Dimensione della scritta "Congratulazioni" */
+            color: #FFD700; /* Colore dorato per "Congratulazioni" */
+            margin-bottom: 30px; /* Distanza tra il testo e i bottoni */
+            font-weight: bold;
+        }
+
+        .btn-large {
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+    <div class="container-fluid position-relative">
+        <!-- Immagine di sfondo -->
+        <img src="img/coyote.jpg" class="bg-image" alt="Coyote">
+
+        <!-- Contenitore per le GIF -->
+        <div class="gif-container">
+            <img src="img/coyoteeee.gif" class="gif top-gif" alt="Coyote GIF"> <!-- GIF in alto a sinistra -->
+            <img src="img/bipbip.gif" class="gif bottom-gif" alt="Bip Bip GIF"> <!-- GIF in basso a sinistra -->
+        </div>
+
+        <!-- Messaggio di vittoria e scritta "Congratulazioni" e i bottoni per rigiocare o finire -->
+        <div class="message-container" id="winMessage">
+            <div class="congratulations">Congratulazioni!Vuoi rigiocare?</div> <!-- Scritta Congratulazioni -->
+            <button class="btn btn-success btn-large" onclick="location.href='welcome.html'">Sì, rigioca</button>
+            <br>
+            <button class="btn btn-danger btn-large" onclick="location.href='end.html'">No, finisci gioco</button>
+        </div>
+    </div>
+
+    <!-- Script Bootstrap JS (opzionale) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

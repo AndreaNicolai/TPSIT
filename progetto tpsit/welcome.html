@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    
+    <!-- Link Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Definizione del font con @font-face */
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/Looney\ Tunes\ Tilt\ BT-FONTSMAGAZINE.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Stile per il testo WELCOME */
+        .welcome-text {
+            font-family: 'CustomFont';
+            font-size: 3rem;
+            color: white; /* Testo bianco */
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Contenitore immagine centrale e immagini angolari */
+        .bg-image {
+            position: relative;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        /* Stile per le immagini ai quattro angoli */
+        .corner-image {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: 10;
+        }
+
+        /* Posizionamento per ciascun angolo all'interno del contenitore */
+        .top-left { top: 0; left: 0; }
+        .top-right { top: 0; right: 0; }
+        .bottom-left { bottom: 0; left: 0; }
+        .bottom-right { bottom: 0; right: 0; }
+
+        /* Stile per il pulsante al centro */
+        .center-button {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'CustomFont'; /* Usa il font personalizzato */
+            font-size: 1rem; /* Dimensione del testo */
+            padding: 0.5rem 1rem; /* Padding del pulsante */
+            border: 2px solid white; /* Bordi bianchi */
+            color: white; /* Testo bianco */
+            background-color: transparent; /* Sfondo trasparente */
+            transition: background-color 0.3s, color 0.3s, text-shadow 0.3s; /* Transizione per l'effetto hover */
+        }
+
+        /* Effetto hover */
+        .center-button:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Leggero effetto hover */
+            color: yellow; /* Cambia il colore del testo in giallo */
+            text-shadow: 2px 2px 8px rgba(255, 255, 0, 0.8); /* Ombra per migliorare la visibilità */
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="position-relative bg-image">
+            <!-- Immagini ai quattro angoli dentro il contenitore dell'immagine principale -->
+            <img src="img/looney-tunes-daffy-duck.gif" class="corner-image top-left" alt="Top left image">
+            <img src="img/tweety-looney-tunes.gif" class="corner-image top-right" alt="Top right image">
+            <img src="img/bugs-bunny-looney-tunes.gif" class="corner-image bottom-left" alt="Bottom left image">
+            <img src="img/silvester-sylvestre.gif" class="corner-image bottom-right" alt="Bottom right image">
+
+            <!-- Testo "WELCOME" posizionato sopra l'immagine -->
+            <div class="welcome-text">WELCOME</div>
+
+            <!-- Immagine centrale -->
+            <img src="img/welcome.jpg" class="img-fluid rounded" alt="Description of the image">
+
+            <!-- Pulsante per cambiare pagina -->
+            <button class="btn center-button" onclick="changePage()">Clicca per Giocare</button>
+        </div>
+    </div>
+
+    <!-- Script JavaScript per il cambio pagina -->
+    <script>
+        function changePage() {
+            window.location.href = 'scelta.html'; // Sostituisci con il nome della tua pagina
+        }
+    </script>
+
+    <!-- Script Bootstrap JS (opzionale) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
